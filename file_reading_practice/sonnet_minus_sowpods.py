@@ -58,3 +58,27 @@ After sorting -> ['a', 'compare', 'i', 'to'].
 =================================================
 
 """
+# Read words from sowpods.txt and store in a set
+sowpods_set = set()
+
+with open("sowpods.txt", "r") as file:
+    for line in file:
+        sowpods_set.add(line.strip())
+
+# Read sonnet_words.txt and find unique words
+unique_words = []
+
+with open("sonnet_words.txt", "r") as file:
+    for line in file:
+        word = line.strip()
+        
+        if word not in sowpods_set:
+            unique_words.append(word)
+
+# Remove duplicates and sort
+unique_words = sorted(set(unique_words))
+
+# Print result
+print("Words in sonnet but not in sowpods:")
+print(unique_words)
+print("Total:", len(unique_words))
