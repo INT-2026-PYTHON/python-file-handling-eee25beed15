@@ -28,3 +28,21 @@ day
 eyes
 more
 banana
+# Function to check palindrome
+def is_palindrome(word):
+    return word == word[::-1]
+
+count = 0
+
+# Open and read the file
+with open("sowpods.txt", "r") as file:
+    for line in file:
+        word = line.strip()
+
+        # Check if palindrome
+        if is_palindrome(word):
+            print(word)
+            count += 1
+
+# Print total palindromes
+print("Total palindromes:", count)
