@@ -80,3 +80,24 @@ see
 this
 gives
 life
+# Read all words from sowpods.txt into a set
+sowpods_words = set()
+
+with open("sowpods.txt", "r") as file:
+    for line in file:
+        sowpods_words.add(line.strip())
+
+# Read sonnet_words.txt and store words in a set
+sonnet_words = set()
+
+with open("sonnet_words.txt", "r") as file:
+    for line in file:
+        sonnet_words.add(line.strip())
+
+# Find words present in sonnet_words but not in sowpods
+unique_words = sorted(sonnet_words - sowpods_words)
+
+# Print output
+print("Words in sonnet but not in sowpods:")
+print(unique_words)
+print("Total:", len(unique_words))
